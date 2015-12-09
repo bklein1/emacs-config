@@ -17,8 +17,12 @@
 (add-to-list 'load-path "~/src/emacs-config/modules")
 
 (require 'move-lines)
+(require 'org-manage)
+
+(setq org-manage-directory-org  "~/Dokumente/Aufgaben")
+
 (move-lines-binding)
 
 (global-hl-line-mode 1)
-(desktop-save-mode 1)
+(desktop-save-mode 0)
 
