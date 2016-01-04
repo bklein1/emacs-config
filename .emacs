@@ -51,25 +51,3 @@
 (add-to-list 'org-drawers "NOTES")
 
 
-;; Publishing settings
-(setq org-publish-project-alist nil)
-(add-to-list 'org-publish-project-alist
-             '("orgfiles"
-                :base-directory "~/Dokumente/LessonsLearned/"
-                :base-extension "org"
-                :publishing-directory "~/Experiments/"
-                :publishing-function org-html-publish-to-html
-                :section-numbers nil
-                :table-of-contents nil
-                :auto-sitemap t
-                :recursive t
-                :sitemap-title "Sitemap"
-                :style "<link rel=\"stylesheet\" href=\"css/worg.css\" 
-type=\"text/css\"/>"))
-
-(add-to-list  'org-publish-project-alist
-              '("LessonsLearned"
-                :components ("orgfiles")))
-
-
-
