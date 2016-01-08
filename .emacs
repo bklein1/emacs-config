@@ -7,7 +7,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/Dokumente/Management/Aufgaben/Ordnung.org" "~/Dokumente/Management/Sonstiges.org" "~/Dokumente/Management/TODO.org"))))
+ '(org-agenda-files (quote ("~/Dokumente/Management/Aufgaben/TODO.org" "~/Dokumente/Management/Aufgaben/Ordnung.org" "~/Dokumente/Management/Sonstiges.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -49,6 +49,11 @@
 
 ;; Register custom drawer names
 (add-to-list 'org-drawers "NOTES")
+
+;; Configure org-capture
+(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
+;; (setq org-default-notes-file (concat org-directory "d:/Notizen/Eingang.org"))
+(define-key global-map "\C-cc" 'org-capture)
 
 
 
