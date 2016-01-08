@@ -56,6 +56,3 @@
 (define-key global-map "\C-cc" 'org-capture)
 
 
-
-
-
