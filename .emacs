@@ -55,4 +55,12 @@
 ;; (setq org-default-notes-file (concat org-directory "d:/Notizen/Eingang.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
+;; http://orgmode.org/org.html#index-C_002dc-c-C-988
+(setq org-capture-templates
+    '(
+       ("t" "Todo" entry (file+headline "~/Dokumente/Notizen/Test.org" "Tasks") "* TODO %?\n  %i\n  %a")
+       ("j" "Journal" entry (file+datetree "~/Dokumente/Notizen/Report.org") "* %?\nEntered on %U\n  %i\n  %a")
+  )
+)
+
 
