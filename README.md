@@ -2,8 +2,10 @@
 This repository is my Emacs Org-Mode configuration for all my Linux and Windows computers.
 
 # General Setup
-cd ~
+cd ~ ; mkdir src ; cd src
 git clone git@github.com:jmewes/emacs-config.git
+cd ~
+ln src/emacs-config/.emacs
 
 # Linux Setup
 - Install Emacs via the package manager
