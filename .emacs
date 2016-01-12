@@ -52,7 +52,8 @@
 
 ;; Configure org-capture
 (setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
-;; (setq org-default-notes-file (concat org-directory "d:/Notizen/Eingang.org"))
 (define-key global-map "\C-cc" 'org-capture)
+
+
 
 
