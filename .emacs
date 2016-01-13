@@ -1,4 +1,7 @@
 
+
+;; another comment
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -52,7 +55,6 @@
 
 ;; Configure org-capture
 (setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
-;; (setq org-default-notes-file (concat org-directory "d:/Notizen/Eingang.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
@@ -62,5 +64,7 @@
        ("j" "Journal" entry (file+datetree "~/Dokumente/Notizen/Report.org") "* %?\nEntered on %U\n  %i\n  %a")
   )
 )
+
+
 
 
