@@ -1,7 +1,14 @@
 
+;; ------------------------------------------------------------------------------
+;;  Load required modules
+;; ------------------------------------------------------------------------------
+(add-to-list 'load-path "~/src/emacs-config/modules")
+(require 'move-lines)
+(require 'org-manage)
 
-;; another comment
-
+;; ------------------------------------------------------------------------------
+;;  General configuration
+;; ------------------------------------------------------------------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -10,7 +17,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/Dokumente/Management/Aufgaben/TODO.org" "~/Dokumente/Management/Aufgaben/Ordnung.org" "~/Dokumente/Management/Sonstiges.org"))))
+ '(org-agenda-files (quote ("~/doc/Management/Aufgaben/TODO.org" "~/doc/Management/Aufgaben/Ordnung.org" "~/doc/Management/Sonstiges.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -18,26 +25,53 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-to-list 'load-path "~/src/emacs-config/modules")
+;; Highlight current line
+(global-hl-line-mode 1)
 
-(require 'move-lines)
-(require 'org-manage)
+;; Enable moving lines up and down
+(move-lines-binding)
 
-(setq org-manage-directory-org  "~/Dokumente/Management")
-(setq default-directory "~/Dokumente/")
+(desktop-save-mode 0)
 
- ;; Acticate key binding which migth clash with other Elisp packages
+;; Automatic word wrap
+(global-visual-line-mode t)
+
+;; Set the start directory for the "Visit new file" dialog
+(setq default-directory "~/doc/")
+
+;; ------------------------------------------------------------------------------
+;;  Configure org-mode variables
+;; ------------------------------------------------------------------------------
+
+;; org-manage provides quick access on the org files in this directory:
+(setq org-manage-directory-org  "~/doc/Management")
+
+;; Configure org-capture
+(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
+
+;; http://orgmode.org/org.html#index-C_002dc-c-C-988
+(setq org-capture-templates
+    '(
+       ("t" "Todo" entry (file+headline "~/doc/Notizen/Test.org" "Tasks") "* TODO %?\n  %i\n  %a")
+       ("j" "Journal" entry (file+datetree "~/doc/Notizen/Report.org") "* %?\nEntered on %U\n  %i\n  %a")
+       ("l" "Lesson leared" entry (file "~/doc/LessonsLearned/Inbox.org") "* %?")
+  )
+)
+
+;; Register custom drawer names
+(add-to-list 'org-drawers "NOTES")
+
+;; ------------------------------------------------------------------------------
+;;  Configure org-mode settings
+;; ------------------------------------------------------------------------------
+
+;; Acticate key binding which migth clash with other Elisp packages
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-
-(move-lines-binding)
-(global-hl-line-mode 1)
-
-(desktop-save-mode 0)
-
+;; Avoid conflict with text selection habits
 (eval-after-load 'org
   (progn
     (define-key org-mode-map (kbd "<S-right>") nil)
@@ -46,25 +80,4 @@
     (define-key org-mode-map (kbd "<S-down>") nil)
   )
 )
-
-;; Automatic word wrap
-(global-visual-line-mode t)
-
-;; Register custom drawer names
-(add-to-list 'org-drawers "NOTES")
-
-;; Configure org-capture
-(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
-(define-key global-map "\C-cc" 'org-capture)
-
-;; http://orgmode.org/org.html#index-C_002dc-c-C-988
-(setq org-capture-templates
-    '(
-       ("t" "Todo" entry (file+headline "~/Dokumente/Notizen/Test.org" "Tasks") "* TODO %?\n  %i\n  %a")
-       ("j" "Journal" entry (file+datetree "~/Dokumente/Notizen/Report.org") "* %?\nEntered on %U\n  %i\n  %a")
-  )
-)
-
-
-
 
