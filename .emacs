@@ -52,10 +52,15 @@
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
 (setq org-capture-templates
     '(
-       ("t" "Todo" entry (file+headline "~/doc/Notizen/Test.org" "Tasks") "* TODO %?\n  %i\n  %a")
-       ("j" "Journal" entry (file+datetree "~/doc/Notizen/Report.org") "* %?\nEntered on %U\n  %i\n  %a")
-       ("l" "Lesson leared" entry (file "~/doc/LessonsLearned/Inbox.org") "* %?")
-  )
+        ("t" "Todo" entry (file+headline "~/doc/Notizen.org" "Aufgabeneingang") "* %?\n  %i")
+        ("d" "Daily" entry (file+datetree "~/doc/Scrum/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
+        ("f" "Frage" entry (file+headline "~/doc/Notizen.org" "OffeneFragen") "* %?\n %i")	
+        ("i" "Verbesserungsidee" entry (file+headline "~/doc/Notizen.org" "Verbesserungsideen") "* %?\n  %i")
+        ("r" "Verbesserungsvorschlag" entry (file "~/doc/Scrum/Retro.org") "* %?\n  %i")
+        ("l" "Lesson Learned" entry (file+headline "~/doc/Notizen.org" "LessonsLearned") "* %?\n  %i")
+        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstige Notizen") "* %?\n  %i")
+
+    )
 )
 
 ;; Register custom drawer names
