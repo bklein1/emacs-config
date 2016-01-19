@@ -54,12 +54,8 @@
     '(
         ("t" "Todo" entry (file+headline "~/doc/Notizen.org" "Aufgabeneingang") "* %?\n  %i")
         ("d" "Daily" entry (file+datetree "~/doc/Scrum/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
-        ("f" "Frage" entry (file+headline "~/doc/Notizen.org" "OffeneFragen") "* %?\n %i")	
-        ("i" "Verbesserungsidee" entry (file+headline "~/doc/Notizen.org" "Verbesserungsideen") "* %?\n  %i")
-        ("r" "Verbesserungsvorschlag" entry (file "~/doc/Scrum/Retro.org") "* %?\n  %i")
         ("l" "Lesson Learned" entry (file+headline "~/doc/Notizen.org" "LessonsLearned") "* %?\n  %i")
-        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstige Notizen") "* %?\n  %i")
-
+        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstiges") "* %?\n  %i")
     )
 )
 
