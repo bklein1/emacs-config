@@ -19,7 +19,5 @@ ln -s src/emacs-config/.emacs
 - Download and extract binaries from http://ftp.gnu.org/gnu/emacs/windows/
 - Set the environment variable HOME to the users home directory
 ```
-cd ~
-rm .emacs
-ln src/emacs-config/.emacs
+cp src/emacs-config/.emacs ~/.emacs
 ```
