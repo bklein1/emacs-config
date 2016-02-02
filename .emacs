@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/src/emacs-config/modules")
 (require 'move-lines)
 (require 'org-manage)
+(require 'org-habit)
 
 ;; ------------------------------------------------------------------------------
 ;;  General configuration
@@ -63,6 +64,14 @@
 ;; Register custom drawer names
 (add-to-list 'org-drawers "NOTES")
 
+;; Org-Mode RSS feeds - they can be fetched with C-c C-x g
+(setq org-feed-alist
+    '(
+        ("Slashdot" "http://rss.slashdot.org/Slashdot/slashdot" "~/doc/Notizen/RSS.org" "Slashdot Entries")
+    )
+)
+
+
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode settings
 ;; ------------------------------------------------------------------------------
@@ -83,3 +92,11 @@
   )
 )
 
+;; ------------------------------------------------------------------------------
+;;  Makros
+;; ------------------------------------------------------------------------------
+
+;; Adjust binding for function 'org-tree-to-indirect-buffer'
+(fset 'concentrate-on-one-item
+   "\C-c\C-xb\C-xo\C-x1")
+(global-set-key (kbd "C-<") 'concentrate-on-one-item)
