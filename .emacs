@@ -95,6 +95,9 @@
 ;;  Makros
 ;; ------------------------------------------------------------------------------
 
+;; Execute the lastly recorded markro with one key stroke
+(global-set-key '[(f1)]          'call-last-kbd-macro)
+
 ;; Adjust binding for function 'org-tree-to-indirect-buffer'
 (fset 'concentrate-on-one-item
    "\C-c\C-xb\C-xo\C-x1")
