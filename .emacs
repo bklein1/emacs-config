@@ -55,8 +55,8 @@
     '(
         ("t" "TODO" entry (file "~/doc/Management/Aufgaben/Eingang.org") "* %?\n  %i")
         ("d" "Daily" entry (file+datetree "~/doc/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
-        ("l" "Lesson Learned" entry (file+headline "~/doc/Notizen.org" "LessonsLearned") "* %?\n  %i")
-        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstiges") "* %?\n  %i")
+        ("n" "Notizen" entry (file+headline "~/doc/Management/Notizen.org" "Notizen") "* %?\n  %i")
+        ("f" "Fehler" entry (file "~/doc/Management/Fehler.org") "* %?\n  %i")
     )
 )
 
