@@ -50,7 +50,7 @@
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
 (setq org-capture-templates
     '(
-        ("n" "Notizen" entry (file+headline "~/doc/Notizen/Notizen.org" "Notizen") "* %?\n  %i")
+        ("n" "Notizen Eingangsbox" entry (file+headline "~/doc/Notizen/Eingang.org" "Notizen") "* %?\n  %i")
         ("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
     )
 )
