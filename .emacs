@@ -18,7 +18,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/doc/Management/Aufgaben/TODO.org" "~/doc/Management/Aufgaben/Ordnung.org" "~/doc/Management/Sonstiges.org"))))
+ '(org-agenda-files (quote ("~/doc/Notizen/Notizen.org" "~/doc/Notizen/Aufgaben.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,18 +45,13 @@
 ;; ------------------------------------------------------------------------------
 
 ;; org-manage provides quick access on the org files in this directory:
-(setq org-manage-directory-org  "~/doc/Management")
-
-;; Configure org-capture
-(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
+(setq org-manage-directory-org  "~/doc/Notizen")
 
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
 (setq org-capture-templates
     '(
-        ("t" "TODO" entry (file "~/doc/Management/Aufgaben/Eingang.org") "* %?\n  %i")
-        ("d" "Daily" entry (file+datetree "~/doc/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
-        ("n" "Notizen" entry (file+headline "~/doc/Management/Notizen.org" "Notizen") "* %?\n  %i")
-        ("f" "Fehler" entry (file "~/doc/Management/Fehler.org") "* %?\n  %i")
+        ("n" "Notizen" entry (file+headline "~/doc/Notizen/Notizen.org" "Notizen") "* %?\n  %i")
+        ("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
     )
 )
 
