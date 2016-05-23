@@ -3,9 +3,11 @@
 ;;  Load required modules
 ;; ------------------------------------------------------------------------------
 (add-to-list 'load-path "~/src/emacs-config/modules")
+
 (require 'move-lines)
 (require 'org-manage)
 (require 'org-habit)
+(require 'yasnippet)
 
 ;; ------------------------------------------------------------------------------
 ;;  General configuration
@@ -39,6 +41,13 @@
 
 ;; Set the start directory for the "Visit new file" dialog
 (setq default-directory "~/doc/")
+
+;; Custom YASnippet templates
+(setq yas-snippet-dirs
+    '("~/src/emacs-config/snippets"))
+
+;; Use YASnippet as global mode
+(yas-global-mode 1)
 
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode variables
