@@ -1,25 +1,12 @@
-
 ;; ------------------------------------------------------------------------------
 ;;  Load required modules
 ;; ------------------------------------------------------------------------------
 (add-to-list 'load-path "~/src/emacs-config/modules")
+
 (require 'move-lines)
 (require 'org-manage)
 (require 'org-habit)
-
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
-  (package-initialize))
-
-;; YASnippet
-(add-to-list 'load-path
-              "/home/janux/.emacs.d/elpa/yasnippet-20160131.948")
 (require 'yasnippet)
-(yas-global-mode 1)
 
 ;; ------------------------------------------------------------------------------
 ;;  General configuration
@@ -32,7 +19,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/doc/Management/Aufgaben/RegelmäßigeAufgaben.org" "~/doc/Management/Aufgaben/TODO.org" "~/doc/Management/Aufgaben/Ordnung.org" "~/doc/Management/Sonstiges.org"))))
+ '(org-agenda-files (quote ("~/doc/Notizen/Notizen.org" "~/doc/Notizen/Aufgaben.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -49,33 +36,35 @@
 (desktop-save-mode 0)
 
 ;; Automatic word wrap
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
 
 ;; Set the start directory for the "Visit new file" dialog
 (setq default-directory "~/doc/")
+
+;; Custom YASnippet templates
+(setq yas-snippet-dirs
+    '("~/src/emacs-config/snippets"))
+
+;; Use YASnippet as global mode
+(yas-global-mode 1)
 
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode variables
 ;; ------------------------------------------------------------------------------
 
 ;; org-manage provides quick access on the org files in this directory:
-(setq org-manage-directory-org  "~/doc/Management")
-
-;; Configure org-capture
-(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
+(setq org-manage-directory-org  "~/doc/Notizen")
 
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
 (setq org-capture-templates
     '(
-        ("t" "TODO" entry (file "~/doc/Management/Aufgaben/Eingang.org") "* %?\n  %i")
-        ("d" "Daily" entry (file+datetree "~/doc/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
-        ("l" "Lesson Learned" entry (file+headline "~/doc/Notizen.org" "LessonsLearned") "* %?\n  %i")
-        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstiges") "* %?\n  %i")
+        ("n" "Notizen Eingangsbox" entry (file+headline "~/doc/Notizen/Eingang.org" "Notizen") "* %?\n  %i")
+        ("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
+	("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
     )
 )
 
-;; Register custom drawer names 
-;; => http://emacs.stackexchange.com/questions/16511/how-can-i-get-a-custom-org-drawer-to-open-close
+;; Register custom drawer names (http://emacs.stackexchange.com/questions/16511)
 (add-to-list 'org-drawers "NOTES")
 
 ;; Org-Mode RSS feeds - they can be fetched with C-c C-x g
@@ -118,7 +107,3 @@
    "\C-c\C-xb\C-xo\C-x1")
 (global-set-key (kbd "C-<") 'concentrate-on-one-item)
 
-;; Twitter
-(fset 'twitter-remove
-   [tab ?\C-k ?\C-k])
-(global-set-key (kbd "C-,") 'twitter-remove)
