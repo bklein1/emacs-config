@@ -107,3 +107,6 @@
    "\C-c\C-xb\C-xo\C-x1")
 (global-set-key (kbd "C-<") 'concentrate-on-one-item)
 
+(fset 'capture-note
+   "\C-ccn\C-x1")
+(global-set-key (kbd "C-t") 'capture-note)
