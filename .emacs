@@ -1,11 +1,12 @@
-
 ;; ------------------------------------------------------------------------------
 ;;  Load required modules
 ;; ------------------------------------------------------------------------------
 (add-to-list 'load-path "~/src/emacs-config/modules")
+
 (require 'move-lines)
 (require 'org-manage)
 (require 'org-habit)
+(require 'yasnippet)
 
 ;; ------------------------------------------------------------------------------
 ;;  General configuration
@@ -18,7 +19,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/doc/Management/Aufgaben/TODO.org" "~/doc/Management/Aufgaben/Ordnung.org" "~/doc/Management/Sonstiges.org"))))
+ '(org-agenda-files (quote ("~/doc/Notizen/Notizen.org" "~/doc/Notizen/Aufgaben.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -43,28 +44,30 @@
 ;; Set the start directory for the "Visit new file" dialog
 (setq default-directory "~/doc/")
 
+;; Custom YASnippet templates
+(setq yas-snippet-dirs
+    '("~/src/emacs-config/snippets"))
+
+;; Use YASnippet as global mode
+(yas-global-mode 1)
+
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode variables
 ;; ------------------------------------------------------------------------------
 
 ;; org-manage provides quick access on the org files in this directory:
-(setq org-manage-directory-org  "~/doc/Management")
-
-;; Configure org-capture
-(setq org-default-notes-file "~/Dokumente/Notizen/Eingang.org")
+(setq org-manage-directory-org  "~/doc/Notizen")
 
 ;; http://orgmode.org/org.html#index-C_002dc-c-C-988
 (setq org-capture-templates
     '(
-        ("t" "TODO" entry (file+headline "~/doc/Notizen.org" "Aufgabeneingang") "* %?\n  %i")
-        ("d" "Daily" entry (file+datetree "~/doc/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
-        ("l" "Lesson Learned" entry (file+headline "~/doc/Notizen.org" "LessonsLearned") "* %?\n  %i")
-        ("v" "Verbesserung Entwicklungsumgebung" entry (file+headline "~/doc/Management/Aufgaben/VerbesserungEntwicklungsumgebung.org" "Eingang") "* %?\n  %i")
-        ("s" "Sonstiges" entry (file+headline "~/doc/Notizen.org" "Sonstiges") "* %?\n  %i")
+        ("n" "Notizen Eingangsbox" entry (file+headline "~/doc/Notizen/Eingang.org" "Notizen") "* %?\n  %i")
+        ("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
+	("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
     )
 )
 
-;; Register custom drawer names
+;; Register custom drawer names (http://emacs.stackexchange.com/questions/16511)
 (add-to-list 'org-drawers "NOTES")
 
 ;; Org-Mode RSS feeds - they can be fetched with C-c C-x g
@@ -106,3 +109,7 @@
 (fset 'concentrate-on-one-item
    "\C-c\C-xb\C-xo\C-x1")
 (global-set-key (kbd "C-<") 'concentrate-on-one-item)
+
+(fset 'capture-note
+   "\C-ccn\C-x1")
+(global-set-key (kbd "C-t") 'capture-note)
