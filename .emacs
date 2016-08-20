@@ -35,7 +35,10 @@
 (desktop-save-mode 0)
 
 ;; Automatic word wrap
-(global-visual-line-mode t)
+;; (global-visual-line-mode t)
+
+;; Truncate long lines by default
+(set-default 'truncate-lines t)
 
 ;; Set the start directory for the "Visit new file" dialog
 (setq default-directory "~/doc/")
