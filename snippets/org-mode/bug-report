@@ -1,5 +1,5 @@
-# name : debug
-# key : d_
+# name : Bug report
+# key : b_
 # --
 
 * Problem description
@@ -22,4 +22,3 @@
 ** Diagnostic information
 <logs, stacktraces, etc.>
 
-* Research
