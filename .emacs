@@ -19,7 +19,9 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(org-agenda-files (quote ("~/doc/Notizen/Notizen.org" "~/doc/Notizen/Aufgaben.org"))))
+ '(org-agenda-files
+   (quote
+    ("/home/janux/doc/Management/Aufgaben/NächsteSchritte.org" "/home/janux/doc/Management/Aufgaben/RegelmäßigeAufgaben.org" "/home/janux/doc/Management/Aufgaben/Weiterbildung.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -38,6 +40,9 @@
 ;; Automatic word wrap
 ;; (global-visual-line-mode t)
 
+;; Truncate long lines by default
+(set-default 'truncate-lines t)
+
 ;; Set the start directory for the "Visit new file" dialog
 (setq default-directory "~/doc/")
 
@@ -47,6 +52,7 @@
 
 ;; Use YASnippet as global mode
 (yas-global-mode 1)
+
 
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode variables
@@ -107,3 +113,6 @@
    "\C-c\C-xb\C-xo\C-x1")
 (global-set-key (kbd "C-<") 'concentrate-on-one-item)
 
+(fset 'capture-note
+   "\C-ccn\C-x1")
+(global-set-key (kbd "C-t") 'capture-note)
