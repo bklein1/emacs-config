@@ -1,0 +1,16 @@
+# name : User Story
+# key : story_
+# --
+
+Title: <descriptive one-line summary>
+
+h4. As <role>
+h4. I want to <...>
+h4. so that <...>.
+
+----
+
+h3. Acceptance criteria
+* h5. <...>
+* h5. <...>
+* h5. <...>
