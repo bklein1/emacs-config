@@ -1,0 +1,22 @@
+# name : Bug report
+# key : bug_
+# --
+
+Title: <descriptive one-line summary>
+
+*Observed result*
+
+*Expected result*
+
+*Steps to reproduce*
+1. 
+2. 
+3. 
+
+*Environemnt*
+- <OS + version>
+- <Tools + version>
+
+*Diagnostic information*
+<logs, stacktraces, etc.>
+
