@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(org-agenda-files
    (quote
-    ("/home/janux/doc/Management/Aufgaben/NächsteSchritte.org" "/home/janux/doc/Management/Aufgaben/RegelmäßigeAufgaben.org" "/home/janux/doc/Management/Aufgaben/Weiterbildung.org"))))
+    ("~/doc/Notizen/Einkauf.org" "~/doc/Notizen/RegelmäßigeAufgaben.org" "~/doc/Notizen/Aufgaben.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
