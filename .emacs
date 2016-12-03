@@ -65,7 +65,7 @@
 (setq org-capture-templates
     '(
         ("n" "Notizen Eingangsbox" entry (file+headline "~/doc/Notizen/Eingang.org" "Notizen") "* %?\n  %i")
-        ("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
+        ("p" "Private Notizen Eingangsbox" entry (file+headline "~/doc/Succedo/Eingang.org" "Private Notizen") "* %?\n  %i")
 	("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
     )
 )
