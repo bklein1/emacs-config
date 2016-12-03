@@ -53,6 +53,8 @@
 ;; Use YASnippet as global mode
 (yas-global-mode 1)
 
+;; Start with Org Mode scratch buffer
+(setq initial-major-mode 'org-mode)
 
 ;; ------------------------------------------------------------------------------
 ;;  Configure org-mode variables
@@ -100,6 +102,11 @@
     (define-key org-mode-map (kbd "<S-down>") nil)
   )
 )
+
+;; Include Markdown exporter
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
 
 ;; ------------------------------------------------------------------------------
 ;;  Makros
