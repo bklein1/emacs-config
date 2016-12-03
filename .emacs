@@ -68,7 +68,7 @@
     '(
         ("n" "Notizen Eingangsbox" entry (file+headline "~/doc/Notizen/Eingang.org" "Notizen") "* %?\n  %i")
         ("p" "Private Notizen Eingangsbox" entry (file+headline "~/doc/Succedo/Eingang.org" "Private Notizen") "* %?\n  %i")
-	("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
+        ("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
     )
 )
 
@@ -123,3 +123,8 @@
 (fset 'capture-note
    "\C-ccn\C-x1")
 (global-set-key (kbd "C-t") 'capture-note)
+
+;; Create directory and links to important files for current development ticket
+(fset 'create-directory-and-links
+   [home C-right C-right S-home S-right S-right S-right ?\C-c timeout end return ?\M-x ?m ?a ?k ?e ?- ?d ?i ?r ?e ?c ?t ?o ?r ?y return ?\C-v return ?- ?  ?\C-c ?\C-l ?. ?/ ?\C-v ?/ ?\C-v ?. ?o ?r ?g return ?\C-v ?. ?o ?r ?g return return ?- ?  ?\C-c ?\C-l ?h ?t ?t ?p ?s ?: ?/ ?/ ?e ?p ?a ?g ?e ?s ?. ?a ?t ?l ?a ?s ?s ?i ?a ?n ?. ?n ?e ?t ?/ ?b ?r ?o ?w ?s ?e ?r backspace ?/ ?\C-v return ?J ?i ?r ?a return return])
+(global-set-key (kbd "<f12>") 'create-directory-and-links)
