@@ -1,5 +1,5 @@
-# name : Scientific method - Problem Resolution Start
-# key : p_
+# name : Debug Logbook
+# key : debug_
 # --
 * Problem description
 ** Symptoms
@@ -11,9 +11,10 @@ $0
 ** Steps to reproduce
 
 
-* Research
-** Simplification
+** Diagnostic information
 
+
+* Experiments
 
 
 * Notes
