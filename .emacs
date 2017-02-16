@@ -70,6 +70,7 @@
         ("l" "Lessons Learned" entry (file+headline "~/doc/Notizen/LessonsLearned.org" "Inbox") "* %?\n  %i")
         ("p" "Private Notizen Eingangsbox" entry (file+headline "~/doc/Succedo/Eingang.org" "Private Notizen") "* %?\n  %i")
         ("e" "Entwicklungsumgebung" entry (file+headline "~/doc/Notizen/Entwicklungsumgebung.org" "Einrichtung Entwicklungsumgebung") "* %?\n  %i")
+	("d" "Daily" entry (file+datetree "~/doc/Notizen/Daily.org" "Report") "* %?\nEntered on %U\n  %i")
     )
 )
 
