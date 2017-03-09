@@ -2,10 +2,10 @@
 # key : debug_
 # --
 * Problem description
-** Symptoms
+** Expected behavior
 $0
 
-** Environment
+** Actual behavior
 
 
 ** Steps to reproduce
@@ -17,4 +17,3 @@ $0
 * Experiments
 
 
-* Notes
